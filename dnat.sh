@@ -8,7 +8,7 @@
 I=0
 for OUTPUT in $(seq $1)
 do
-if [ $I -le 254 ]; then
+if [ $I -le 252 ]; then
 printf "iptables -t nat -A PREROUTING -i eno1 -p tcp --dport %d -j DNAT --to  10.10.10.%d:3389\n" $((3389+$I)) $(($I+2))
 let I++
 fi
